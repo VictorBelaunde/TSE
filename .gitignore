@@ -1,0 +1,8 @@
+# Ignorar archivos del sistema de Mac
+.DS_store
+
+# Ignorar carpeta build
+build
+
+# Ignorar archivos .yml
+project.yml

@@ -94,13 +94,9 @@ void test_prede_un_led_consulto_estado(void)
 
 {
 
-    _Bool led_prendido = 0;
-
     leds_prende_uno(2);
 
-    led_prendido = leds_estado_led(2);
-
-    do {if ((led_prendido)) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(53)));}} while(0);
+    do {if ((leds_estado_led(2))) {} else {UnityFail( ((" Expected TRUE Was FALSE")), (UNITY_UINT)((UNITY_UINT)(51)));}} while(0);
 
 }
 
@@ -112,11 +108,9 @@ void test_apaga_un_led_consulto_estado(void)
 
 {
 
-    _Bool led_prendido = 1;
-
     leds_apaga_uno(2);
 
-    led_prendido = leds_estado_led(2);
+    do {if (!(leds_estado_led(2))) {} else {UnityFail( ((" Expected FALSE Was TRUE")), (UNITY_UINT)((UNITY_UINT)(58)));}} while(0);
 
 }
 
@@ -130,9 +124,9 @@ void test_prende_todos_los_leds(void)
 
 
 
-    leds_prende_todos(&puerto_virtual);
+    leds_prende_todos();
 
-    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0xFFFF)), (UNITY_INT)(UNITY_INT16)((puerto_virtual)), (((void*)0)), (UNITY_UINT)(69), UNITY_DISPLAY_STYLE_HEX16);
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0xFFFF)), (UNITY_INT)(UNITY_INT16)((puerto_virtual)), (((void*)0)), (UNITY_UINT)(66), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -144,10 +138,10 @@ void test_apaga_todos_los_leds_y_consulto_estado(void)
 
 {
 
-    leds_prende_todos(&puerto_virtual);
+    leds_prende_todos();
 
-    leds_apago_todos(&puerto_virtual);
+    leds_apago_todos();
 
-    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0x0000)), (UNITY_INT)(UNITY_INT16)((puerto_virtual)), (((void*)0)), (UNITY_UINT)(77), UNITY_DISPLAY_STYLE_HEX16);
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0x0000)), (UNITY_INT)(UNITY_INT16)((puerto_virtual)), (((void*)0)), (UNITY_UINT)(74), UNITY_DISPLAY_STYLE_HEX16);
 
 }

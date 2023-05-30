@@ -47,32 +47,29 @@ void test_prender_y_apagar_varios_leds(void)
 //Prendo un led, consulto el estado y tiene que estar prendido
 void test_prede_un_led_consulto_estado(void)
 {
-    bool led_prendido = false;
     leds_prende_uno(2);
-    led_prendido = leds_estado_led(2);
-    TEST_ASSERT_TRUE(led_prendido);
+    TEST_ASSERT_TRUE(leds_estado_led(2));
 }
 
 //Apago un led, consulto el estado y tiene que estar apagado
 void test_apaga_un_led_consulto_estado(void)
 {
-    bool led_prendido = true;
     leds_apaga_uno(2);
-    led_prendido = leds_estado_led(2);
+    TEST_ASSERT_FALSE(leds_estado_led(2));
 }
 
 //Con todos los leds apagados, enciendo todos los leds y verifico que se encienden
 void test_prende_todos_los_leds(void)
 {
 
-    leds_prende_todos(&puerto_virtual);
+    leds_prende_todos();
     TEST_ASSERT_EQUAL_HEX16(0xFFFF, puerto_virtual);
 }
 
 //Con todos los leds encendidos, apago todos los leds y verifico que se apagan
 void test_apaga_todos_los_leds_y_consulto_estado(void)
 {
-    leds_prende_todos(&puerto_virtual);
-    leds_apago_todos(&puerto_virtual);
+    leds_prende_todos();
+    leds_apago_todos();
     TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual);
 }

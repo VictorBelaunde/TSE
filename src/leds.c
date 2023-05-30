@@ -16,7 +16,7 @@ uint16_t index_to_mask(uint8_t led)
 void leds_inicia(uint16_t *direccion)
 {
     puerto_virtual = direccion;
-    *puerto_virtual = TODOS_LEDS_OFF;
+    leds_apago_todos();
 }
 
 void leds_prende_uno(uint8_t led)
@@ -35,14 +35,12 @@ bool leds_estado_led(uint8_t led)
     return (masked_port_value != TODOS_LEDS_OFF);
 }
 
-void leds_prende_todos(uint16_t *direccion)
+void leds_prende_todos()
 {   
-    puerto_virtual = direccion;
     *puerto_virtual = TODOS_LEDS_ON;
 }
 
-void leds_apago_todos(uint16_t *direccion)
+void leds_apago_todos()
 {
-    puerto_virtual = direccion;
     *puerto_virtual = TODOS_LEDS_OFF;
 }

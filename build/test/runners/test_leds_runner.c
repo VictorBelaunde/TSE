@@ -90,9 +90,9 @@ int main(void)
   run_test(test_prender_y_apagar_un_led, "test_prender_y_apagar_un_led", 30);
   run_test(test_prender_y_apagar_varios_leds, "test_prender_y_apagar_varios_leds", 38);
   run_test(test_prede_un_led_consulto_estado, "test_prede_un_led_consulto_estado", 48);
-  run_test(test_apaga_un_led_consulto_estado, "test_apaga_un_led_consulto_estado", 57);
-  run_test(test_prende_todos_los_leds, "test_prende_todos_los_leds", 65);
-  run_test(test_apaga_todos_los_leds_y_consulto_estado, "test_apaga_todos_los_leds_y_consulto_estado", 73);
+  run_test(test_apaga_un_led_consulto_estado, "test_apaga_un_led_consulto_estado", 55);
+  run_test(test_prende_todos_los_leds, "test_prende_todos_los_leds", 62);
+  run_test(test_apaga_todos_los_leds_y_consulto_estado, "test_apaga_todos_los_leds_y_consulto_estado", 70);
 
   return UnityEnd();
 }
